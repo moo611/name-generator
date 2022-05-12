@@ -1,3 +1,0 @@
-import trainer
-
-trainer.train()

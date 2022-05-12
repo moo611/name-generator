@@ -42,7 +42,7 @@ def generate_data(tokenizer: NameTokenizer):
 
 def train():
 
-    tokenizer = NameTokenizer(path=PATH_NAME, required_gender=GENDER)
+    tokenizer = NameTokenizer(path=PATH_DATA, required_gender=GENDER)
     steps = len(tokenizer.names)/BATCH_SIZE
     # # 构建模型
     model = keras.Sequential([
@@ -57,4 +57,4 @@ def train():
     model.fit_generator(generate_data(tokenizer),
                         steps_per_epoch=steps, epochs=EPOCHS)
 
-    model.save()
+    model.save("mymodel")
